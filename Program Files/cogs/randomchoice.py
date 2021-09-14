@@ -8,12 +8,11 @@ from discord.ext import commands
 
 # this is how you start a cog, by creating a class and naming the class 
 # classes are supposed to be there in each cog beginining, otherwise that isnt a cog!
+# the name of your class will be the name of your cog. Note that down, and thank me later
 
 class RandomChoiceCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-
-# the name of your class will be the name of your cog. Note that down, and thank me later
 
     @commands.command()
     async def cogexample(self, ctx):

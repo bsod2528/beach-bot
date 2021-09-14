@@ -7,6 +7,7 @@ import asyncio
 from discord import activity
 from discord.enums import Status
 from discord.ext import commands
+import pathlib
 
 # bot constructor
 bot = commands.Bot(command_prefix = '.b', status = discord.Status.idle, activity = discord.Game(name = 'Just a Bitch ;)') )
@@ -19,7 +20,8 @@ async def on_ready():
 # THE PRINT GIVEN ABOVE PRINTS IN OUR CONSOLE THAT THE BOT IS UP AND GOOD TO RUN
 
 # COGS SETUP
-for filename in os.listdir('D:\AV\PC\Coding\Discord Bot\Beach\Program Files\cogs'):
+rootdir = pathlib.Path(__file__).parent.resolve()
+for filename in os.listdir(f'{rootdir}cogs'):
     if filename.endswith('.py'):
         bot.load_extension(f'cogs.{filename[:-3]}')
 

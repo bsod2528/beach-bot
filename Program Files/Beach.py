@@ -35,18 +35,18 @@ for filename in os.listdir('D:\AV\PC\Coding\Discord Bot\Beach\Program Files\cogs
 
 # command in the main bot.py
 @bot.command
-async def bich(ctx):
-    await ctx.send('Ye, I know your a bich. \n'
+async def beach(ctx):
+    await ctx.send('Yeah, you I love the beach!\n'
                     '*heads out silently*')
 # ctx --> context
 # all it does is represents the context in which a command is being invoked under.
 # you always do await to give output and *ctx.send* --> sends the context to the place where you have invoked the command
 
 @bot.command
-async def bichy(ctx):
+async def sandy(ctx):
     async with ctx.typing():
         await asyncio.sleep(0.5)
-    await ctx.send('Stop being so bitchy EWWW!!!!')
+    await ctx.send('Stop being so beachy EWWW!!!!')
 # async with ctx.typing --> all it does is it asynchronises with the context being typed sent where the command is invoked
 # await asyncio.sleep(0.5) --> it waits for the time ( sleep ) as when typing we take some time to write down the words, this replicates it.
 

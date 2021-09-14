@@ -30,6 +30,8 @@ class RandomChoiceCog(commands.Cog):
                          'Random B',
                          'Random C',
                          'Random D']
+        async with ctx.typing():
+            await asyncio.sleep(0.5)
         await ctx.send(f'{random.choice(random_output)}')
     # random_output --> this is a variable name set to the random output variable.
     # f string is utilised so that the random choice works.
@@ -46,6 +48,8 @@ class RandomChoiceCog(commands.Cog):
             title = 'Random in Embed',
             description = 'This embed will consist a random output below.\n'
                           '{random.choice(embed_random_output)}')
+        async with ctx.typing():
+            await asyncio.sleep(0.5)
         await ctx.send(embed = emb)
     # the {random.choice(variable)} is supposed to be mentioned in description, as thats where all the main content goes.
     # as usual, we send the embed the ctx.send and hence we get our output ( when command is invoked ) as an embed.

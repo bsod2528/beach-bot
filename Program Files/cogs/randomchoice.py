@@ -13,6 +13,7 @@ from discord.ext import commands
 class RandomChoiceCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+    # we define that self.bot is bot as inside a cog, self is necessary to be used
 
     @commands.command()
     async def cogexample(self, ctx):

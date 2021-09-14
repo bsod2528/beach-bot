@@ -50,5 +50,28 @@ async def bichy(ctx):
 # async with ctx.typing --> all it does is it asynchronises with the context being typed sent where the command is invoked
 # await asyncio.sleep(0.5) --> it waits for the time ( sleep ) as when typing we take some time to write down the words, this replicates it.
 
+@bot.command
+async def embed(ctx):
+    async with ctx.typing():
+        await asyncio.sleep(0.5)
+    emb = discord.Embed(
+        title = 'This is the title of the Embed',
+        description = 'You add descriptions for the embed here. You can add more content by\n'
+                       'Using New Line',
+        color = ctx.author.color)
+# This is how one creates an embed. More colors will be present in ReadMe, check it out!
+
+    emb.add_field(
+        name = 'This is the title for a field',
+        value = 'Description for a field is given by value',
+        inline = False)
+# Inline False is given, otherwise your embed will look bazinga boing! 
+# Its your own personal preference, I like embeds with inline as False, experiment and see what you get without the inline value given. You'll knwo what I mean.
+# No need to mention *Color* as these are only extra fields for your embed above.
+
+    await ctx.send(embed = emb)
+# You send your embed with ctx. Note to point, I have given emb, you guys can add whatever you want to. emb is only a variable name for the embed on the whole.
+
+
 # Make sure the bot logs in 
 bot.run('Token')

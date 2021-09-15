@@ -12,6 +12,7 @@ Beach Bot is a fun and simple template / guide on how to create an amazing DISCO
   -  Run `git` on your command prompt, if it sends a lot of help spam then you're good to go to the next step
    
 - Install discord.py:    
+  - Run the below command in your [command prompt](https://www.lifewire.com/command-prompt-2625840)
   - `pip install -U git+https://github.com/Rapptz/discord.py` <-- Run this to install Discord.py 2.0
 
 - Some popular Editors to get started with your bot:

@@ -11,9 +11,7 @@ Beach Bot is a fun and simple template / guide on how to create an amazing DISCO
 
 ***Creating an Application (Bot) -->***
 You then need to create an application at [Discord Developer Portal](https://discord.com/developers/applications). The following steps show how:- 
-    
-    - You head over to the portal, go to  Applications tab. Click on New Application. Give a name for your application and select Create [ Blue Button ]
-    
+    - You head over to the portal, go to  `Applications` tab. Click on `New Application`. Give a name for your application and select Create [ Blue Button ]
     - You head over to `Bot` under the settings and you click on `Add Bot`. 
 And Hence, you have sucessfully created your first bot, all that remains is coding it [:pepeleave:](https://cdn.discordapp.com/emojis/886950503374815312.gif?v=1)
 

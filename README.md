@@ -3,11 +3,22 @@
 Beach Bot is a fun and simple template / guide on how to create an amazing DISCORD BOT using Python Language. In this repository, one will learn how to create and run their very own discord bot! 
 
 ***PRE REQUISITE -->***
-- Version 3.8 and above version of [python](https://www.python.org/downloads/release/python-380/)
-- GIT needs to be installed
-- Run `git` on your command prompt
-- `pip install -U git+https://github.com/Rapptz/discord.py` <-- Run this to install Discord.py 2.0
-- Editor for editing your .py file. [VSCode](https://code.visualstudio.com/download) [Atom](https://atom.io/) [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows)
+- Install Python:
+    Version 3.8 and above version of [python](https://www.python.org/downloads/release/python-380/)
+    
+- Install GIT:
+  - GIT needs to be installed to install discord.py on your computer
+  - Click [here](https://git-scm.com/downloads) to download git    \n-> Git needs to be in PATH for it to be usable, try googling `how to add git to Path` to add git to PATH if it isn't already. Example for Windows [here]( https://stackoverflow.com/questions/26620312/git-installing-git-in-path-with-github-client-for-windows)
+  -  Run `git` on your command prompt, if it sends a lot of help spam then you're good to go to the next step
+   
+- Install discord.py:    
+  - Run the below command in your [command prompt](https://www.lifewire.com/command-prompt-2625840)
+  - `pip install -U git+https://github.com/Rapptz/discord.py` <-- Run this to install Discord.py 2.0
+
+- Some popular Editors to get started with your bot:
+  -  [VSCode](https://code.visualstudio.com/download) - Best IDE for people who don't know Python
+  -  [Atom](https://atom.io/) - good lightweight and easy to use editor
+  -  [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows) - heavier IDE for people with more python experience
 
 ***Creating an Application (Bot) -->***
 You then need to create an application at [Discord Developer Portal](https://discord.com/developers/applications). The following steps show how:- 

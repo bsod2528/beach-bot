@@ -8,7 +8,8 @@ Beach Bot is a fun and simple template / guide on how to create an amazing DISCO
     
 - Install GIT:
   - GIT needs to be installed to install discord.py on your computer
-  - Click [here](https://git-scm.com/downloads) to download git    \n-> Git needs to be in PATH for it to be usable, try googling `how to add git to Path` to add git to PATH if it isn't already. Example for Windows [here]( https://stackoverflow.com/questions/26620312/git-installing-git-in-path-with-github-client-for-windows)
+  - Click [here](https://git-scm.com/downloads) to download git    
+  Git needs to be in PATH for it to be usable, try googling `how to add git to Path` to add git to PATH if it isn't already. Example for Windows [here]( https://stackoverflow.com/questions/26620312/git-installing-git-in-path-with-github-client-for-windows)
   -  Run `git` on your command prompt, if it sends a lot of help spam then you're good to go to the next step
    
 - Install discord.py:    

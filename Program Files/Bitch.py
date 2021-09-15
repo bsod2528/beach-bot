@@ -19,7 +19,8 @@ async def on_ready():
 # the print given above prints it in the console when you run the bot
 
 # COGS SETUP
-for filename in os.listdir('D:\AV\PC\Coding\Discord Bot\Beach\Program Files\cogs'):
+rootdir = pathlib.Path(__file__).parent.resolve()
+for filename in os.listdir(f'{rootdir}cogs'):
     if filename.endswith('.py'):
         bot.load_extension(f'cogs.{filename[:-3]}')
 

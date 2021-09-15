@@ -11,7 +11,7 @@ import logging
 # bot constructor
 bot = commands.Bot(command_prefix = '.b', status = discord.Status.idle, activity = discord.Game(name = 'Just a Bitch ;)') )
 Token = "<token here>" # your bot token [ CHECK DISCORD DEVELOPER PORTAL ] 
-Token = "ODgxMjMyNTAxOTc5MzQ5MDUy.YSp1uA.kfTl4OaWoT__1LqjdE-mewnDEDM"
+
 rootdir = pathlib.Path(__file__).parent.resolve()
 
 # Loggers help keep your console from being flooded with Errors, you can instead send them to a file which you can check later

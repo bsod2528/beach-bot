@@ -12,12 +12,12 @@ Beach Bot is a fun and simple template / guide on how to create an amazing DISCO
   -  Run `git` on your command prompt, if it sends a lot of help spam then you're good to go to the next step
    
 - Install discord.py:    
-    -> `pip install -U git+https://github.com/Rapptz/discord.py` <-- Run this to install Discord.py 2.0
+  - `pip install -U git+https://github.com/Rapptz/discord.py` <-- Run this to install Discord.py 2.0
 
 - Some popular Editors to get started with your bot:
-    -> [VSCode](https://code.visualstudio.com/download) - Best IDE for people who don't know Python
-    -> [Atom](https://atom.io/) - good lightweight and easy to use editor
-    -> [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows) - heavier IDE for people with more python experience
+  -  [VSCode](https://code.visualstudio.com/download) - Best IDE for people who don't know Python
+  -  [Atom](https://atom.io/) - good lightweight and easy to use editor
+  -  [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows) - heavier IDE for people with more python experience
 
 ***Creating an Application (Bot) -->***
 You then need to create an application at [Discord Developer Portal](https://discord.com/developers/applications). The following steps show how:- 

@@ -12,6 +12,13 @@ class OwnerCog(commands.Cog):
     # initialisation finished for the cog 
 
     # the load command is used to load cogs into usage ( if the cogs has been unloaded )
+
+    async def cog_check(self, ctx):
+        return await self.bot.is_owner(ctx.author)
+        #Cog Checks are like normal command checks except that they apply to the whole cog
+        #In this case we Check if the user is the bot Owner
+        #This makes it easier to check without having to add one for every single command in this cog
+
     # is_owner() --> a check which the bot will run, to see whether if the person who invoked the command is the bot owner or not.
     @commands.command()
     @commands.is_owner()
@@ -29,7 +36,7 @@ class OwnerCog(commands.Cog):
 
     # the same can be done for unload cogs.
     @commands.command()
-    @commands.is_owner
+    @commands.is_owner()
     async def unload(self, ctx, *, cog : str):
         try:
             self.bot.unload_extension(cog)

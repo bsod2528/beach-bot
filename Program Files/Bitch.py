@@ -2,15 +2,26 @@
 import discord
 import random 
 import datetime
+import pathlib
 import os
 import asyncio
-from discord import activity
-from discord.enums import Status
 from discord.ext import commands
+import logging
 
 # bot constructor
 bot = commands.Bot(command_prefix = '.b', status = discord.Status.idle, activity = discord.Game(name = 'Just a Bitch ;)') )
-Token = # your bot token [ CHECK DISCORD DEVELOPER PORTAL ] 
+Token = "<token here>" # your bot token [ CHECK DISCORD DEVELOPER PORTAL ] 
+
+rootdir = pathlib.Path(__file__).parent.resolve()
+
+# Loggers help keep your console from being flooded with Errors, you can instead send them to a file which you can check later
+logger = logging.getLogger('bitchlog')
+#()
+logger.setLevel(logging.DEBUG)
+handler = logging.FileHandler(filename=f'{rootdir}/bitchlog.log', encoding='utf-8', mode='w')
+handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+logger.addHandler(handler)
+logger.info("Bitch Bot is online")
 
 # bot login confirmation into discord
 @bot.event
@@ -19,7 +30,7 @@ async def on_ready():
 # the print given above prints it in the console when you run the bot
 
 # COGS SETUP
-for filename in os.listdir('D:\AV\PC\Coding\Discord Bot\Beach\Program Files\cogs'):
+for filename in os.listdir(f'{rootdir}/cogs'):
     if filename.endswith('.py'):
         bot.load_extension(f'cogs.{filename[:-3]}')
 
@@ -74,4 +85,4 @@ async def embed(ctx):
 
 
 # make sure the bot logs in 
-bot.run('Token')
+bot.run(Token)

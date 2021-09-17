@@ -9,7 +9,7 @@ from discord.ext import commands
 
 # to get emote id add \ before typing out the emote
 # example, emote name is bruhh. We get id by
-# \:bruh: and then sending the message in a channel.
+# \:bruhh: and then sending the message in a channel.
 
 # note that these emotes are present in the server which your bot is in too!
 

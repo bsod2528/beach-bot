@@ -10,7 +10,7 @@ import logging
 
 # bot constructor
 bot = commands.Bot(command_prefix = '.b', status = discord.Status.idle, activity = discord.Game(name = '.b \ Just a Beach ;)') )
-Token = "ODg3MjAyMTI1Nzk1NDUwOTQx.YUAtXg.IQ8sRrvwET87xDEtYjIFXCW1gcA" # your bot token [ CHECK DISCORD DEVELOPER PORTAL ] 
+Token = "<token>" # your bot token [ CHECK DISCORD DEVELOPER PORTAL ] 
 
 rootdir = pathlib.Path(__file__).parent.resolve()
 

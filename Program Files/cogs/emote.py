@@ -19,24 +19,16 @@ class EmotePy(commands.Cog):
     # a command to give out emotes
     @commands.command(alias = ['et'])
     async def emotetest(self, ctx):
-        async with ctx.typing():
-            await asyncio.sleep(0.5)
-        await ctx.send(f'Normal Static Emote\n'
-                        '<:frogworry:887502713976410165>')
+        await ctx.send(f'Normal Static Emote -> <:frogworry:887502713976410165>')
     
     # another example, but this time its and animated emote
     @commands.command(alias = ['at'])
     async def aniemote(self, ctx):
-        async with ctx.typing():
-            await asyncio.sleep(0.5)
-        await ctx.send(f'Animated Emote\n',
-                        '<a:pepehehe:877959535137026059>')
+        await ctx.send(f'Animated Emote --> <a:pepehehe:877959535137026059>')
     
     # a simple embed which outputs a random emote in an embed.
     @commands.command()
     async def embedemote(self, ctx):
-        async with ctx.typing():
-            await asyncio.sleep(0.5)
         emote = ['<a:pepehehe:877959535137026059>',
                  '<:frogworry:887502713976410165>',
                  '<:linusbruh:885886169320140880>',
@@ -45,9 +37,9 @@ class EmotePy(commands.Cog):
                  '<a:trumpisclap:887740398020223006>']
         emb = discord.Embed(
             title = 'Emote Embed',
-            description = '{random.choice(emote)}',
+            description = f'{random.choice(emote)}',
             color = ctx.author.color
         )
-
+        await ctx.send(embed = emb  )
 def setup(bot):
     bot.add_cog(EmotePy(bot))

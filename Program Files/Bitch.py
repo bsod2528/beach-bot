@@ -9,8 +9,8 @@ from discord.ext import commands
 import logging
 
 # bot constructor
-bot = commands.Bot(command_prefix = '.b', status = discord.Status.idle, activity = discord.Game(name = 'Just a Bitch ;)') )
-Token = "<token here>" # your bot token [ CHECK DISCORD DEVELOPER PORTAL ] 
+bot = commands.Bot(command_prefix = '.b', status = discord.Status.idle, activity = discord.Game(name = '.b \ Just a Beach ;)') )
+Token = "ODg3MjAyMTI1Nzk1NDUwOTQx.YUAtXg.IQ8sRrvwET87xDEtYjIFXCW1gcA" # your bot token [ CHECK DISCORD DEVELOPER PORTAL ] 
 
 rootdir = pathlib.Path(__file__).parent.resolve()
 
@@ -45,23 +45,25 @@ for filename in os.listdir(f'{rootdir}/cogs'):
 
 
 # command in the main bot.py
-@bot.command
+@bot.command(brief = 'A simple Command in Main.py')
 async def beach(ctx):
     await ctx.send('Yeah, you I love the beach!\n'
                     '*heads out silently*')
+
 # ctx --> context
 # all it does is represents the context in which a command is being invoked under.
 # you always do await to give output and *ctx.send* --> sends the context to the place where you have invoked the command
 
-@bot.command
+@bot.command(brief = 'Showcases the power of ctx.typing()')
 async def sandy(ctx):
     async with ctx.typing():
         await asyncio.sleep(0.5)
     await ctx.send('Stop being so beachy EWWW!!!!')
+
 # async with ctx.typing --> all it does is it asynchronises with the context being typed sent where the command is invoked
 # await asyncio.sleep(0.5) --> it waits for the time ( sleep ) as when typing we take some time to write down the words, this replicates it.
 
-@bot.command
+@bot.command(brief = 'A simple embed example in main.py')
 async def embed(ctx):
     async with ctx.typing():
         await asyncio.sleep(0.5)
@@ -81,8 +83,19 @@ async def embed(ctx):
 # no need to mention *Color* as these are only extra fields for your embed above.
 
     await ctx.send(embed = emb)
+
 # you send your embed with ctx. Note to point, I have given emb, you guys can add whatever you want to. emb is only a variable name for the embed on the whole.
 
+# to send a button with a link, we have to create new class and give it a function called discord.ui.View
+class RepoLink(discord.ui.View):
+    def __init__(self):
+        super().__init__()
+        url = f'https://github.com/BSOD2528/Beach-Bot'
+        self.add_item(discord.ui.Button(label = 'Beach Bot Repo', url = url))
+@bot.command(brief = 'Sends a button with a link to the Public Repo')
+async def repo(ctx: commands.Context):
+    await ctx.send(f'My Public Repository:', view = RepoLink())
+# self.add_item --> you are telling the bot to add things by itself.
 
 # make sure the bot logs in 
 bot.run(Token)

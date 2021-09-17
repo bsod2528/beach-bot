@@ -44,6 +44,26 @@ for filename in os.listdir(f'{rootdir}/cogs'):
 # you will be forced to load it again to use that cog
 
 
+# this is a minimal help command example. More links for help commands have been given in ReadMe.md in main repo!
+class MinimalHelp(commands.MinimalHelpCommand):
+    async def send_pages(self):
+        destination = self.get_destination()
+
+# so we create a class mentioning the name for our help command.
+# this is only a mininmal help command!        
+# make sure you guys add the help text for each command and category.
+        
+        for page in self.paginator.pages:
+            emb = discord.Embed(
+                title = 'Beach Bot is here to Help',
+                description = page,
+                color = 0x3498db)
+            emb.timestamp = datetime.datetime.now(datetime.timezone.utc)
+            # this is how you add a timestamp on your embed. For this datetime has to be imported
+            await destination.send(embed = emb)
+
+bot.help_command = MinimalHelp()
+
 # command in the main bot.py
 @bot.command(brief = 'A simple Command in Main.py')
 async def beach(ctx):
@@ -96,25 +116,6 @@ class RepoLink(discord.ui.View):
 async def repo(ctx: commands.Context):
     await ctx.send(f'My Public Repository:', view = RepoLink())
 # self.add_item --> you are telling the bot to add things by itself.
-
-# this is a minimal help command example. More links for help commands have been given in ReadMe.md in main repo!
-class MinimalHelp(commands.MinimalHelpCommand):
-    async def send_pages(self):
-        destination = self.get_destination()
-        
-# so we create a class mentioning the name for our help command.
-# this is only a mininmal help command!        
-        
-        for page in self.paginator.pages:
-            emb = discord.Embed(
-                title = 'Beach Bot is here to Help',
-                description = page,
-                color = 0x3498db)
-            emb.timestamp = datetime.datetime.now(datetime.timezone.utc)
-            # this is how you add a timestamp on your embed. For this datetime has to be imported
-            await destination.send(embed = emb)
-
-bot.help_command = MinimalHelp()
 
 # make sure the bot logs in 
 bot.run(Token)

@@ -114,7 +114,9 @@ class RepoLink(discord.ui.View):
         self.add_item(discord.ui.Button(label = 'Beach Bot Repo', url = url))
 @bot.command(brief = 'Sends a button with a link to the Public Repo')
 async def repo(ctx: commands.Context):
-    await ctx.send(f'My Public Repository:', view = RepoLink())
+    async with ctx.typing():
+        await asyncio.sleep(0.5)
+    await ctx.send(f'My Source Code:', view = RepoLink())
 # self.add_item --> you are telling the bot to add things by itself.
 
 # make sure the bot logs in 

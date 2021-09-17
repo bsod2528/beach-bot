@@ -15,7 +15,7 @@ class RandomChoiceCog(commands.Cog):
         self.bot = bot
     # we define that self.bot is bot as inside a cog, self is necessary to be used
 
-    @commands.command()
+    @commands.command(brief = 'A command inside a cog')
     async def cogexample(self, ctx):
         async with ctx.typing():
             await asyncio.sleep(0.5)
@@ -36,19 +36,20 @@ class RandomChoiceCog(commands.Cog):
         await ctx.send(f'{random.choice(random_output)}')
     # random_output --> this is a variable name set to the random output variable.
     # f string is utilised so that the random choice works.
-
+    # alias added to the command decorator allows you to use short names for your commmand
 
     # same random output, but in an embed
     @commands.command(alias = ['er'])
     async def embedrandom(self, ctx):
-        embed_random_output = ['Random 1',
+        blah = ['Random 1',
                                'Random 2',
                                'Random 3',
                                'Random 4']
         emb = discord.Embed(
             title = 'Random in Embed',
-            description = 'This embed will consist a random output below.\n'
-                          '{random.choice(embed_random_output)}')
+            description = f'This embed will consist a random output below. --> {random.choice(blah)}',
+            color = ctx.author.color)
+        emb.timestamp = datetime.datetime.now(datetime.timezone.utc)
         async with ctx.typing():
             await asyncio.sleep(0.5)
         await ctx.send(embed = emb)

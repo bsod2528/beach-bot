@@ -76,7 +76,7 @@ class Utility(commands.Cog):
             filename = src.co_filename
 
         lines, firstlineno = inspect.getsourcelines(src)
-        if not module.startswith('discord'):
+        if not module.startswith('discord') or command == 'help':
             # not a built-in command
             location = "Program Files" + os.path.relpath(filename).replace('\\', '/').split("Program Files")[-1]
         else:

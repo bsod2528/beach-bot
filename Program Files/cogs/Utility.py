@@ -57,13 +57,14 @@ class Utility(commands.Cog):
         if command is None:
             view.add_item(discord.ui.Button(style=discord.ButtonStyle.link, url = source_url, label = "Source", emoji = emoji))
             return await ctx.send("Here's the Entire Repo", view = view)
+        
+        obj = self.bot.get_command(command.replace('.', ' '))
 
         if command == 'help':
             src = type(self.bot.help_command)
             module = src.__module__
             filename = inspect.getsourcefile(src)
         else:
-            obj = self.bot.get_command(command.replace('.', ' '))
             if obj is None:
                 return await ctx.send(f'Could not find command: {command}')
 
@@ -77,7 +78,7 @@ class Utility(commands.Cog):
         lines, firstlineno = inspect.getsourcelines(src)
         if not module.startswith('discord'):
             # not a built-in command
-            location = "/Program Files" + os.path.relpath(filename).replace('\\', '/').split("/Program Files")[-1]
+            location = "Program Files" + os.path.relpath(filename).replace('\\', '/').split("Program Files")[-1]
         else:
             location = module.replace('.', '/') + '.py'
         final_url = f'{source_url}/blob/{branch}/{location}#L{firstlineno}-L{firstlineno + len(lines) - 1}'.replace(" ","%20")

@@ -67,6 +67,7 @@ class Utility(commands.Cog):
             if obj is None:
                 return await ctx.send(f'Could not find command: {command}')
 
+
             # since we found the command we're looking for, presumably anyway, let's
             # try to access the code itself
             src = obj.callback.__code__
@@ -76,13 +77,12 @@ class Utility(commands.Cog):
         lines, firstlineno = inspect.getsourcelines(src)
         if not module.startswith('discord'):
             # not a built-in command
-            location = os.path.relpath(filename).replace('\\', '/')
+            location = "/Program Files" + os.path.relpath(filename).replace('\\', '/').split("/Program Files")[-1]
         else:
             location = module.replace('.', '/') + '.py'
-        command = self.bot.get_command(command)
         final_url = f'{source_url}/blob/{branch}/{location}#L{firstlineno}-L{firstlineno + len(lines) - 1}'.replace(" ","%20")
         view.add_item(discord.ui.Button(style=discord.ButtonStyle.link, url = final_url, label = "Source", emoji = emoji))
-        await ctx.send(f"Here's the source for `{command.qualified_name}`", view = view)
+        await ctx.send(f"Here's the source for `{obj.qualified_name}`", view = view)
 
 def setup(bot):
     bot.add_cog(Utility(bot))

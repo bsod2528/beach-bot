@@ -9,7 +9,31 @@ from discord.ext import commands
 import logging
 
 # bot constructor
-bot = commands.Bot(command_prefix = '.b', status = discord.Status.idle, activity = discord.Game(name = '.b \ Just a Beach ;)') )
+
+#@e're subclassing the bot for better processing
+class Bot(commands.Bot):
+    def __init__(self, **kwargs):
+        super().__init__(command_prefix= [".b"],  intents = discord.Intents.all(), status = discord.Status.idle, activity = discord.Game(name = '.b | Just a Bitch ;)'))
+        #Here we mention intents = discord.Intents.all() so as to utilise all the intents, can be changed as required
+    
+    async def on_ready(self):
+        # bot login confirmation into discord
+
+        #Bunch of info stuff being logged to the console
+        print(f'\n\nLogged in as {self.user} (ID: {self.user.id})')
+        total_members = list(bot.get_all_members())
+        total_channels = sum(1 for x in bot.get_all_channels())
+        print(f'Guilds: {len(bot.guilds)}')
+        print(f'Large Guilds: {sum(g.large for g in bot.guilds)}')
+        print(f'Chunked Guilds: {sum(g.chunked for g in bot.guilds)}')
+        print(f'Members: {len(total_members)}')
+        print(f'Channels: {total_channels}')
+        print(f'Message Cache Size: {len(bot.cached_messages)}\n')
+        print('\n\nBitch Im REAADDDYYY!!!')
+        # the print statements given above prints it in the console when you run the bot
+
+bot = Bot()
+
 Token = "<token>" # your bot token [ CHECK DISCORD DEVELOPER PORTAL ] 
 
 rootdir = pathlib.Path(__file__).parent.resolve()
@@ -22,11 +46,6 @@ handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(me
 logger.addHandler(handler)
 logger.info("Bitch Bot is online")
 
-# bot login confirmation into discord
-@bot.event
-async def on_ready():
-    print('Bitch Im REAADDDYYY!!!')
-# the print given above prints it in the console when you run the bot
 
 # COGS SETUP
 for filename in os.listdir(f'{rootdir}/cogs'):

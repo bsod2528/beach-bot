@@ -29,7 +29,7 @@ class Bot(commands.Bot):
         print(f'Members: {len(total_members)}')
         print(f'Channels: {total_channels}')
         print(f'Message Cache Size: {len(bot.cached_messages)}\n')
-        print('\n\nBitch Im REAADDDYYY!!!')
+        print('\nBitch Im REAADDDYYY!!!')
         # the print statements given above prints it in the console when you run the bot
 
 bot = Bot()

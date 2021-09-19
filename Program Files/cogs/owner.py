@@ -36,7 +36,6 @@ class OwnerCog(commands.Cog):
 
     # the same can be done for unload cogs.
     @commands.command()
-    @commands.is_owner()
     async def unload(self, ctx, *, cog : str):
         try:
             self.bot.unload_extension(cog)
@@ -48,9 +47,20 @@ class OwnerCog(commands.Cog):
     # note that, if we unload OwnerCog, we will not be able to utilise commands inside them and hence. We have a workaround for this.
     # workaround for this particular thing will be shown later.
 
+
+    #This does the same thing is used to reload loaded cogs by unloading them and loading them in one single command
+    @commands.command()
+    async def reload(self, ctx, *, cog : str):
+        try:
+            self.bot.unload_extension(cog)
+            self.bot.load_extension(cog)
+        except Exception as e:
+            await ctx.send(f'**`ERROR:`**{type(e).__name__} - {e}')
+        else:
+            await ctx.send(f'**`Done`**')
+
     # this is for enabling and disabling certain commands present inside any cog.
     @commands.command(name="toggle", description="Enable or disable a command!", alias = ['tg'])
-    @commands.is_owner()
     async def toggle(self, ctx, *, command):
         command = self.bot.get_command(command)
     # the astericks or * given states that this is will take in input from the user for n number of characters ( i.e, infinite characters )
@@ -92,6 +102,19 @@ class OwnerCog(commands.Cog):
     # as you can see, we have added emb.timestamp in each of our embeds. 
     # the timestamp will provide the time at which the time at which the command was invoked. 
     # for this to occur, we have imported a module named *datetime* ( check line 5 of this cog ).
+
+
+    #Its always better to close the bot using await bot.close() rather than closing the file that you're running
+    @commands.command(name="shutdown", aliases = ['die','stop'], help = "Shutdown the bot in a peaceful way, rather than just closing the window", brief = "Shutdown ")
+    async def shutdown(self, ctx):
+        await ctx.reply("Shutting down")
+        try:
+            #Here the bot tries to add a reaction if possible, else it just ignores and passes
+            await ctx.message.add_reaction("\U00002705")
+        except:
+            pass
+        await self.bot.close()
+        #await self.bot.close closes the bot properly
 
 def setup(bot):
     bot.add_cog(OwnerCog(bot))

@@ -78,10 +78,10 @@ class Utility(commands.Cog):
         lines, firstlineno = inspect.getsourcelines(src)
         if not module.startswith('discord') or command == 'help':
             # not a built-in command
-            location = "Program Files" + os.path.relpath(filename).replace('\\', '/').split("Program Files")[-1]
+            location = os.path.relpath(filename).replace('\\', '/').split("Program Files")[-1]
         else:
             location = module.replace('.', '/') + '.py'
-        final_url = f'{source_url}/blob/{branch}/{location}#L{firstlineno}-L{firstlineno + len(lines) - 1}'.replace(" ","%20")
+        final_url = f'{source_url}/blob/{branch}/Program Files{location}#L{firstlineno}-L{firstlineno + len(lines) - 1}'.replace(" ","%20")
         view.add_item(discord.ui.Button(style=discord.ButtonStyle.link, url = final_url, label = "Source", emoji = emoji))
         await ctx.send(f"Here's the source for `{obj.qualified_name}`", view = view)
 

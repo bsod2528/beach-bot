@@ -7,6 +7,7 @@ import os
 import asyncio
 from discord.ext import commands
 import logging
+import json
 
 # bot constructor
 
@@ -34,7 +35,8 @@ class Bot(commands.Bot):
 
 bot = Bot()
 
-Token = "<token>" # your bot token [ CHECK DISCORD DEVELOPER PORTAL ] 
+token = json.load(open(r'D:\AV\PC\Coding\Discord Bot\Beach\Program Files\config.json')) 
+# your bot token [ CHECK DISCORD DEVELOPER PORTAL ] 
 
 rootdir = pathlib.Path(__file__).parent.resolve()
 
@@ -143,4 +145,5 @@ async def repo(ctx: commands.Context):
     await ctx.send(f'Links Utilised:', view = view)
 
 # make sure the bot logs in 
-bot.run(Token)
+
+bot.run(f'{token["TOKEN"]}')
